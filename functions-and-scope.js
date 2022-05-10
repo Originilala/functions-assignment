@@ -16,6 +16,33 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+//pseudocode
+// Input:
+// -Array met cijfers
+// Output:
+// -Cijfer cumlaude totaal
+// Stappen:
+//
+// 1.Tel alle cijfers bij elkaar op
+// 1a. Loop door de array
+// 1b. Check of het cijfer 8 of hoger is
+// 1c. Tel iedere iteratie op met +=
+// 2.Sla op in variabele
+// 3.Geef het cijfer terug met return statement
+// 4.Log het cijfer
+
+const cumLaude = arrayList => {
+    let totalNumber = 0;
+    for (let i = 0; i < arrayList.length; i++) {
+        if (arrayList[i] >= 8) {
+            totalNumber++
+        }
+    }
+
+    return totalNumber
+}
+
+console.log(cumLaude(grades));
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -26,8 +53,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
-
-
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -58,7 +83,30 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+//pseudocode
+// Input:
+// -Array met cijfers
+// Output:
+// -Cijfer mean
+// Stappen:
 
+// 1.Tel alle cijfers bij elkaar op
+// 1a. Loop door de array
+// 1b. Tel iedere iteratie op met +=
+// 2.Deel door totaal aantal cijfers
+// 3.Geef het cijfer terug met return statement
+// 4.Log het cijfer
+
+const averageGrade = arrayList => {
+    let totalNumber = 0;
+    for (let i = 0; i < arrayList.length; i++) {
+        totalNumber += arrayList[i]
+    }
+
+    return totalNumber / arrayList.length
+}
+
+console.log(averageGrade(grades).toFixed(2));
 
 
 /* Bonusopdracht: hoogste cijfer */
@@ -82,3 +130,34 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+//pseudocode
+// Input:
+// -Array met cijfers
+// Output:
+// -Cijfer hoogste
+// Stappen:
+//
+
+// 1.Vergelijk alle cijfers
+// 1a. Loop door de array
+// 1b. Is de huidige hoger dan vorige?
+// 1c. Sla de hoogste op
+// 1d. Dezelfde stap bij de volgende iteratie
+// 2.Sla het cijfer op buiten de loop
+// 3.Geef het cijfer terug met return statement
+// 4.Log het cijfer
+
+
+const highestGrade = arrayList => {
+    let highNumber = 0;
+    for (let i = 0; i < arrayList.length; i++) {
+        if (arrayList[i] > highNumber) {
+            highNumber = arrayList[i]
+        }
+    }
+
+    return highNumber;
+}
+
+console.log(highestGrade(grades))

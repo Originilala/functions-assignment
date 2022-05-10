@@ -9,7 +9,13 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+const getEmailDomain = emailadres => {
+    return emailadres.slice(emailadres.indexOf("@")+1)
+}
 
+console.log(getEmailDomain("n.eeken@novi-education.nl"))
+console.log(getEmailDomain("t.mellink@novi.nl"))
+console.log(getEmailDomain("a.wiersma@outlook.com"))
 
 
 /* Opdracht  2 */
@@ -20,6 +26,22 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+const getEmailDomain2 = emailadres => {
+
+    switch(emailadres.substring(emailadres.indexOf("@")+1)) {
+        case 'novi-education.nl':
+            return "Student";
+        case 'novi.nl':
+            return "Medewerker";
+        case 'outlook.com':
+        default:
+            return "Extern";
+        }
+}
+
+console.log(getEmailDomain2("n.eeken@novi-education.nl"))
+console.log(getEmailDomain2("t.mellink@novi.nl"))
+console.log(getEmailDomain2("a.wiersma@outlook.com"))
 
 
 /* Opdracht  3 */
@@ -34,3 +56,20 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+const checkEmailValidity = emailadres => {
+
+    if(("." !== emailadres.charAt(emailadres.length - 1)) &&
+        !(emailadres.includes(",")) &&
+        emailadres.includes("@")){
+        return true
+    }else {
+        return false;
+    }
+}
+
+console.log(checkEmailValidity("n.eeken@novi.nl"))
+console.log(checkEmailValidity("tessmellink@novi.nl"))
+console.log(checkEmailValidity("n.eekenanovi.nl"))
+console.log(checkEmailValidity("n.eeken@novinl."))
+console.log(checkEmailValidity("tessmellink@novi,nl"))
